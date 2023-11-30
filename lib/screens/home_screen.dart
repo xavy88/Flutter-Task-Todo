@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/widgets/banner_image.dart';
 
 class HomeScree extends StatelessWidget {
   const HomeScree({super.key});
@@ -6,10 +7,16 @@ class HomeScree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: const Center(
-        child: Text('Xavy Screen'),
-      ),
-    );
+        body: Stack(
+      children: [
+        Column(
+          children: [
+            const SizedBox(height: 50),
+            const BannerImage(),
+            Container()
+          ],
+        )
+      ],
+    ));
   }
 }
