@@ -7,7 +7,7 @@ class AppTheme {
   const AppTheme._();
 
   static final light = FlexThemeData.light(
-    scheme: FlexScheme.mango,
+    scheme: FlexScheme.amber,
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurfacesVariantDialog,
     blendLevel: 40,
     appBarStyle: FlexAppBarStyle.primary,
