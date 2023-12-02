@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
 import 'package:todo_app/widgets/display_white_text.dart';
@@ -15,32 +16,85 @@ class HomeScree extends StatelessWidget {
       children: [
         Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const BannerImage(),
             Container(
               height: deviceSize.height * 0.2,
               width: deviceSize.width,
               color: colors.primary,
-              child: const Center(
-                child: Column(
-                  children: [
-                    SizedBox(height: 30),
-                    DisplayWhiteText(
-                      text: 'Nov 30, 2023',
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    DisplayWhiteText(
-                      text: 'Todo List',
-                      fontSize: 35,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ],
-                ),
+              child: const Column(
+                children: [
+                  SizedBox(height: 20),
+                  DisplayWhiteText(
+                    text: 'Nov 30, 2023',
+                    fontSize: 20,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  DisplayWhiteText(
+                    text: 'Todo List',
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ],
               ),
-            )
+            ),
           ],
-        )
+        ),
+        Positioned(
+            top: 300,
+            left: 0,
+            right: 0,
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    width: deviceSize.width,
+                    height: deviceSize.height * 0.3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: colors.primaryContainer,
+                    ),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 8,
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        return const Text('Home');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text('Complete', style: context.textTheme.headlineMedium),
+                  Container(
+                    width: deviceSize.width,
+                    height: deviceSize.height * 0.25,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: colors.primaryContainer,
+                    ),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 8,
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        return const Text('Home');
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: DisplayWhiteText(text: 'Add a new task'),
+                    ),
+                  ),
+                ],
+              ),
+            ))
       ],
     ));
   }

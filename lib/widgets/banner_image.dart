@@ -9,7 +9,7 @@ class BannerImage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         width: double.infinity,
-        height: 300,
+        height: 200,
         decoration: const BoxDecoration(
           //color: backgroundColors,
           image: DecorationImage(
