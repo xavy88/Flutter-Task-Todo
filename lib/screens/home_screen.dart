@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
+import 'package:todo_app/widgets/common_container.dart';
 import 'package:todo_app/widgets/display_white_text.dart';
 
 class HomeScree extends StatelessWidget {
@@ -50,13 +50,8 @@ class HomeScree extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    width: deviceSize.width,
+                  CommonContainer(
                     height: deviceSize.height * 0.3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: colors.primaryContainer,
-                    ),
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: 8,
@@ -68,13 +63,8 @@ class HomeScree extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text('Complete', style: context.textTheme.headlineMedium),
-                  Container(
-                    width: deviceSize.width,
+                  CommonContainer(
                     height: deviceSize.height * 0.25,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: colors.primaryContainer,
-                    ),
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: 8,
