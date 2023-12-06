@@ -31,7 +31,16 @@ class DisplayListOfTasks extends StatelessWidget {
               itemCount: tasks.length,
               padding: EdgeInsets.zero,
               itemBuilder: (context, index) {
-                return const Text('Home');
+                final task = tasks[index];
+                return Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red,
+                  ),
+                  child: Center(
+                    child: Icon(task.category.icon),
+                  ),
+                );
               },
             ),
     );

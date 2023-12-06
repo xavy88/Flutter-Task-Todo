@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/data/data.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
-import 'package:todo_app/widgets/common_container.dart';
 import 'package:todo_app/widgets/display_list_of_tasks.dart';
 import 'package:todo_app/widgets/display_white_text.dart';
 
@@ -42,31 +42,48 @@ class HomeScree extends StatelessWidget {
           ],
         ),
         Positioned(
-            top: 300,
+            top: 270,
             left: 0,
             right: 0,
-            child: SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const DisplayListOfTasks(tasks: []),
-                  const SizedBox(height: 20),
-                  Text('Completed', style: context.textTheme.headlineMedium),
-                  const DisplayListOfTasks(
-                    tasks: [],
-                    isCompletedTasks: true,
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: DisplayWhiteText(text: 'Add a new task'),
+            child: SafeArea(
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const DisplayListOfTasks(tasks: [
+                      Task(
+                          title: 'title',
+                          note: 'note',
+                          time: '16:20',
+                          date: 'Dec-06',
+                          isCompleted: true)
+                    ]),
+                    const SizedBox(height: 15),
+                    Text('Completed', style: context.textTheme.headlineMedium),
+                    const SizedBox(height: 15),
+                    const DisplayListOfTasks(
+                      tasks: [
+                        Task(
+                            title: 'title',
+                            note: 'note',
+                            time: '16:20',
+                            date: 'Dec-06',
+                            isCompleted: true)
+                      ],
+                      isCompletedTasks: true,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: DisplayWhiteText(text: 'Add a new task'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ))
       ],
