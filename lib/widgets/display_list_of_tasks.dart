@@ -5,22 +5,35 @@ import '../data/data.dart';
 import 'common_container.dart';
 
 class DisplayListOfTasks extends StatelessWidget {
-  const DisplayListOfTasks({super.key, required this.tasks});
+  const DisplayListOfTasks(
+      {super.key, required this.tasks, this.isCompletedTasks = false});
   final List<Task> tasks;
+  final bool isCompletedTasks;
 
   @override
   Widget build(BuildContext context) {
     final deviceSize = context.deviceSize;
+    final height =
+        isCompletedTasks ? deviceSize.height * 0.25 : deviceSize.height * 0.3;
+    final emptyTaskMessage = isCompletedTasks
+        ? 'There is no completed tasks yet!'
+        : 'There is no task to do!';
+
     return CommonContainer(
-      height: deviceSize.height * 0.3,
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 8,
-        padding: EdgeInsets.zero,
-        itemBuilder: (context, index) {
-          return const Text('Home');
-        },
-      ),
+      height: height,
+      child: tasks.isEmpty
+          ? Center(
+              child: Text(emptyTaskMessage,
+                  style: context.textTheme.headlineSmall),
+            )
+          : ListView.builder(
+              shrinkWrap: true,
+              itemCount: tasks.length,
+              padding: EdgeInsets.zero,
+              itemBuilder: (context, index) {
+                return const Text('Home');
+              },
+            ),
     );
   }
 }

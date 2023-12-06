@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
 import 'package:todo_app/widgets/common_container.dart';
+import 'package:todo_app/widgets/display_list_of_tasks.dart';
 import 'package:todo_app/widgets/display_white_text.dart';
 
 class HomeScree extends StatelessWidget {
@@ -50,29 +51,12 @@ class HomeScree extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  CommonContainer(
-                    height: deviceSize.height * 0.3,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 8,
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        return const Text('Home');
-                      },
-                    ),
-                  ),
+                  const DisplayListOfTasks(tasks: []),
                   const SizedBox(height: 20),
-                  Text('Complete', style: context.textTheme.headlineMedium),
-                  CommonContainer(
-                    height: deviceSize.height * 0.25,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 8,
-                      padding: EdgeInsets.zero,
-                      itemBuilder: (context, index) {
-                        return const Text('Home');
-                      },
-                    ),
+                  Text('Completed', style: context.textTheme.headlineMedium),
+                  const DisplayListOfTasks(
+                    tasks: [],
+                    isCompletedTasks: true,
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
