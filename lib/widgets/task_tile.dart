@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/utils/extensions.dart';
+import 'package:todo_app/widgets/widgets.dart';
 
 import '../data/models/task.dart';
 
@@ -25,15 +26,8 @@ class TaskTile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(9.0),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: task.category.color.withOpacity(backgroundOpacity),
-                border: Border.all(
-                  width: 2,
-                  color: task.category.color.withOpacity(iconOpacity),
-                )),
+          CircleContainer(
+            color: task.category.color.withOpacity(backgroundOpacity),
             child: Center(
               child: Icon(
                 task.category.icon,
