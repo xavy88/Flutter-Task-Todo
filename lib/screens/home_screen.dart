@@ -58,10 +58,22 @@ class HomeScree extends StatelessWidget {
                           note: 'note',
                           time: '16:20',
                           date: 'Dec-06',
-                          isCompleted: true)
+                          isCompleted: false,
+                          category: TaskCategories.education),
+                      Task(
+                          title: 'title 2',
+                          note: 'note 2',
+                          time: '17:08',
+                          date: 'Dec-06',
+                          isCompleted: false,
+                          category: TaskCategories.work),
                     ]),
                     const SizedBox(height: 15),
-                    Text('Completed', style: context.textTheme.headlineMedium),
+                    Text(
+                      'Completed',
+                      style: context.textTheme.headlineMedium
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
                     const SizedBox(height: 15),
                     const DisplayListOfTasks(
                       tasks: [
@@ -70,7 +82,15 @@ class HomeScree extends StatelessWidget {
                             note: 'note',
                             time: '16:20',
                             date: 'Dec-06',
-                            isCompleted: true)
+                            isCompleted: true,
+                            category: TaskCategories.travel),
+                        Task(
+                            title: 'title 2',
+                            note: 'note 2',
+                            time: '17:08',
+                            date: 'Dec-06',
+                            isCompleted: true,
+                            category: TaskCategories.shopping),
                       ],
                       isCompletedTasks: true,
                     ),
