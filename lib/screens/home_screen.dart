@@ -62,7 +62,8 @@ class HomeScree extends StatelessWidget {
                           category: TaskCategories.education),
                       Task(
                           title: 'title 2',
-                          note: 'note 2',
+                          note:
+                              'Tempor est nisi magna proident non et sunt et nulla exercitation dolor in. Ex deserunt anim officia nulla anim nulla mollit nostrud sunt pariatur Lorem exercitation cupidatat. Esse culpa officia elit qui id nulla voluptate veniam mollit duis. Quis occaecat consequat nulla culpa. Ut nostrud dolore nisi anim mollit deserunt.',
                           time: '17:08',
                           date: 'Dec-06',
                           isCompleted: false,
