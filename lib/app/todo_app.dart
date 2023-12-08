@@ -10,6 +10,6 @@ class TodoApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
-        home: const HomeScree());
+        home: const HomeScreen());
   }
 }

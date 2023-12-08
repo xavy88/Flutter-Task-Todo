@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:todo_app/data/data.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
 import 'package:todo_app/widgets/display_list_of_tasks.dart';
 import 'package:todo_app/widgets/display_white_text.dart';
 
-class HomeScree extends StatelessWidget {
-  const HomeScree({super.key});
+class HomeScreen extends StatelessWidget {
+  static HomeScreen builder(BuildContext context, GoRouterState state) =>
+      const HomeScreen();
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
