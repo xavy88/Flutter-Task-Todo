@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/config/config.dart';
 import 'package:todo_app/data/data.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/banner_image.dart';
@@ -100,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => context.push(RouteLocation.createTask),
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: DisplayWhiteText(text: 'Add a new task'),
