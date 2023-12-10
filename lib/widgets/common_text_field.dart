@@ -7,12 +7,16 @@ class CommonTextField extends StatelessWidget {
       required this.title,
       required this.hintText,
       this.controller,
-      this.maxLines});
+      this.maxLines,
+      this.suffixIcon,
+      this.readOnly = false});
 
   final String title;
   final String hintText;
   final TextEditingController? controller;
   final int? maxLines;
+  final Widget? suffixIcon;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,8 @@ class CommonTextField extends StatelessWidget {
           maxLines: maxLines,
           decoration: InputDecoration(
             hintText: hintText,
+            suffixIcon: suffixIcon,
+            border: const UnderlineInputBorder(),
           ),
           onChanged: (value) {},
         ),

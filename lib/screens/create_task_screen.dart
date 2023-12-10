@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/widgets/widgets.dart';
 
@@ -26,31 +27,22 @@ class CreateTaskScreen extends StatelessWidget {
               hintText: 'Task Title',
             ),
             const SizedBox(height: 16),
-            const Row(
-              children: [
-                Expanded(
-                  child: CommonTextField(
-                    title: 'Date',
-                    hintText: 'Dec,09',
-                  ),
-                ),
-                SizedBox(width: 10),
-                Expanded(
-                  child: CommonTextField(
-                    title: 'Time',
-                    hintText: '14:14',
-                  ),
-                ),
-              ],
-            ),
+            const SelectDateTime(),
             const CommonTextField(
               title: 'Note',
               hintText: 'Task Note',
               maxLines: 8,
             ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-                onPressed: () {}, child: const DisplayWhiteText(text: 'Save')),
+            const SizedBox(height: 30),
+            SizedBox(
+              height: 80,
+              child: ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.save),
+                label: const DisplayWhiteText(text: 'Save'),
+                //child: const DisplayWhiteText(text: 'Save'),
+              ),
+            ),
           ],
         ),
       ),

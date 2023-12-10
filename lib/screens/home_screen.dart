@@ -99,14 +99,21 @@ class HomeScreen extends StatelessWidget {
                       ],
                       isCompletedTasks: true,
                     ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () => context.push(RouteLocation.createTask),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: DisplayWhiteText(text: 'Add a new task'),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    SizedBox(
+                      height: 60,
+                      child: ElevatedButton.icon(
+                        onPressed: () => context.push(RouteLocation.createTask),
+                        icon: const Icon(Icons.add),
+                        label: const DisplayWhiteText(text: 'Add a new task'),
+                        // child: const Padding(
+                        //   padding: EdgeInsets.all(8.0),
+                        //   child: DisplayWhiteText(text: 'Add a new task'),
                       ),
                     ),
+                    //),
                   ],
                 ),
               ),
