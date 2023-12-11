@@ -14,36 +14,40 @@ class CreateTaskScreen extends StatelessWidget {
       appBar: AppBar(
         title: const DisplayWhiteText(text: 'Add New Task'),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const BannerImage(),
-            const SizedBox(height: 16),
-            const CommonTextField(
-              title: 'Task Title',
-              hintText: 'Task Title',
-            ),
-            const SizedBox(height: 16),
-            const SelectDateTime(),
-            const CommonTextField(
-              title: 'Note',
-              hintText: 'Task Note',
-              maxLines: 8,
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              height: 80,
-              child: ElevatedButton.icon(
-                onPressed: () {},
-                icon: const Icon(Icons.save),
-                label: const DisplayWhiteText(text: 'Save'),
-                //child: const DisplayWhiteText(text: 'Save'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const BannerImage(),
+              const SizedBox(height: 16),
+              const CommonTextField(
+                title: 'Task Title',
+                hintText: 'Task Title',
               ),
-            ),
-          ],
+              const SizedBox(height: 16),
+              const SelectCategory(),
+              const SizedBox(height: 16),
+              const SelectDateTime(),
+              const CommonTextField(
+                title: 'Note',
+                hintText: 'Task Note',
+                maxLines: 8,
+              ),
+              const SizedBox(height: 30),
+              SizedBox(
+                height: 80,
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.save),
+                  label: const DisplayWhiteText(text: 'Save'),
+                  //child: const DisplayWhiteText(text: 'Save'),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
