@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todo_app/providers/providers.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widgets/task_details.dart';
 import 'package:todo_app/widgets/task_tile.dart';
@@ -36,18 +37,35 @@ class DisplayListOfTasks extends ConsumerWidget {
               itemBuilder: (context, index) {
                 final task = tasks[index];
                 return InkWell(
-                    onLongPress: () {
-                      AppAlerts.showDeleteAlertDialog(context, ref, task);
-                    },
-                    onTap: () async {
-                      await showModalBottomSheet(
-                        context: context,
-                        builder: (context) {
-                          return TaskDetails(task: task);
-                        },
-                      );
-                    },
-                    child: TaskTile(task: task));
+                  onLongPress: () {
+                    AppAlerts.showDeleteAlertDialog(context, ref, task);
+                  },
+                  onTap: () async {
+                    await showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return TaskDetails(task: task);
+                      },
+                    );
+                  },
+                  child: TaskTile(
+                      task: task,
+                      onCompleted: (value) async {
+                        await ref
+                            .read(taskProvider.notifier)
+                            .updateTask(task)
+                            .then(
+                          (value) {
+                            AppAlerts.displaySnackBar(
+                              context,
+                              task.isCompleted
+                                  ? 'Task incompleted'
+                                  : 'Task completed',
+                            );
+                          },
+                        );
+                      }),
+                );
               },
               separatorBuilder: (BuildContext context, int index) {
                 return const Divider(thickness: 1.5);
