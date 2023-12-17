@@ -44,7 +44,7 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const BannerImage(),
+              const BannerAddImage(),
               const SizedBox(height: 16),
               CommonTextField(
                 title: 'Task Title',
