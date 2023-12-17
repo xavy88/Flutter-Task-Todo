@@ -16,7 +16,7 @@ class DisplayListOfTasks extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceSize = context.deviceSize;
     final height =
-        isCompletedTasks ? deviceSize.height * 0.25 : deviceSize.height * 0.3;
+        isCompletedTasks ? deviceSize.height * 0.20 : deviceSize.height * 0.25;
     final emptyTaskMessage = isCompletedTasks
         ? 'There is no completed tasks yet!'
         : 'There is no task to do!';

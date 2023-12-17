@@ -27,20 +27,34 @@ class TaskDatasource {
     );
   }
 
+  // Future<void> _onCreate(Database db, int version) async {
+  //   await db.execute('''
+  //       CREATE TABLE ${DBKeys.dbTable}(
+  //         ${DBKeys.idColum} INTEGER PRIMARY KEY AUTOINCREMENT,
+  //         ${DBKeys.titleColum} TEXT,
+  //         ${DBKeys.noteColum} TEXT,
+  //         ${DBKeys.dateColum} TEXT,
+  //         ${DBKeys.timeColum} TEXT,
+  //         ${DBKeys.categoryColum} TEXT,
+  //         ${DBKeys.isCompletedColum} INTEGER,
+  //       )
+  //   ''');
+  // }
+
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
-        CREATE TABLE ${DBKeys.dbTable}(
-          ${DBKeys.idColum} INTEGER PRIMARY KEY AUTOINCREMENT,
-          ${DBKeys.titleColum} TEXT,
-          ${DBKeys.noteColum} TEXT,
-          ${DBKeys.dateColum} TEXT,
-          ${DBKeys.timeColum} TEXT,
-          ${DBKeys.categoryColum} TEXT,
-          ${DBKeys.isCompletedColum} INTEGER,
-        )
+      CREATE TABLE ${DBKeys.dbTable}(
+            ${DBKeys.idColum} INTEGER PRIMARY KEY AUTOINCREMENT,
+            ${DBKeys.titleColum} TEXT,
+            ${DBKeys.noteColum} TEXT,
+            ${DBKeys.dateColum} TEXT,
+            ${DBKeys.timeColum} TEXT,
+            ${DBKeys.categoryColum} TEXT,
+            ${DBKeys.isCompletedColum} INTEGER
+        
+      )
 
-  
-    ''');
+      ''');
   }
 
   Future<int> addTask(Task task) async {
