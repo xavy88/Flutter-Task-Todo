@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:todo_app/config/config.dart';
 import 'package:todo_app/data/data.dart';
 import 'package:todo_app/providers/task/task.dart';
@@ -21,6 +22,7 @@ class HomeScreen extends ConsumerWidget {
     final taskState = ref.watch(taskProvider);
     final completedTasks = _completedTask(taskState.tasks);
     final incompletedTasks = _incompletedTask(taskState.tasks);
+    late final String currentDate = DateFormat('yMMMd').format(DateTime.now());
     return Scaffold(
       body: Stack(
         children: [
@@ -32,15 +34,15 @@ class HomeScreen extends ConsumerWidget {
                 height: deviceSize.height * 0.2,
                 width: deviceSize.width,
                 color: colors.primary,
-                child: const Column(
+                child: Column(
                   children: [
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     DisplayWhiteText(
-                      text: 'Nov 30, 2023',
+                      text: currentDate,
                       fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
-                    DisplayWhiteText(
+                    const DisplayWhiteText(
                       text: 'Todo List',
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
